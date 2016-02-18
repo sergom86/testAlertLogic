@@ -1,11 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>TestAlertLogic - Find By Actor</title>
 </head>
-<body>
-	Actor Name : <input type="text" name="fname"><br> 
-  <input type="submit" value="Search">
+<body ng-app="">
+	Actor Name : 
+	<input type="text" name="in_actor" ng-model="in_actor"><br> 	
+	<input type="submit" value="Search">
+	<p>{{in_actor}}</p>
 </body>
 </html>
