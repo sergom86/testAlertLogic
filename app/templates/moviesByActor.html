@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>TestAlertLogic - Search By Actor</title>
+	
+	<!--  JS -->
+	<script src="../purpose/jquery/jquery.min.js"></script>
+	<script src="../purpose/jquery/jquery-ui.min.js"></script>
+	<script src="../purpose/functions.js"></script>
+	<script src="../purpose/functionsJquery.js"></script>
+	<script src="../app.js"></script>
+	<script src="../controllers/searchController.js"></script>
+	
+	
+	<!--  CSS -->
+	<link rel="stylesheet" href="../purpose/jquery/jquery-ui.min.css">
+	<link href="../purpose/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body ng-app="actorApp" ng-controller="searchCtrl">   
+   <div class = "container">
+   <h3 class="text-muted">Movies By Actors</h3>
+   <form class="">
+	<div class="form-group">
+		<label for="descActor">Actor Name</label>
+		<input type="text" id="descActor" name="descActor" ng-model="descActor" class=".form-control-file">
+		<input type="hidden" id="idActor" name="idActor" ng-model="idActor">		
+	</div>
+	
+	<div class="form-group">
+		<input type="button" class="btn btn-primary" value="Search" ng-click="searchByActor()">
+	</div>
+		
+	</form>
+	<table class="table table-striped" ng-if="movies.length > 1">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Release Date</th>
+				<th>Character</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="movie in movies | orderBy:'-release_date'" ng-if="movies.length > 1">
+				<th>{{movie.title}}</th>
+				<td>{{movie.release_date}}</td>
+				<td>{{movie.character}}</td>				
+				<td><img src="{{routeImages}}{{movie.poster_path}}" width="50px" heigth="50px" Alt="Poster"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
