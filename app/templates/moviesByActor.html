@@ -46,7 +46,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="movie in $data | orderBy:'-release_date'" >
+			<tr ng-repeat="movie in $data" >
 				<th>{{movie.title}}</th>
 				<td>{{movie.release_date}}</td>
 				<td>{{movie.character}}</td>				

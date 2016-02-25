@@ -2,9 +2,7 @@
  * Angular Controllers SearchByActor
  */
 actorApp.controller('searchCtrl', function($scope, $http,NgTableParams) {		
-	/*
-	$scope.movies = [{title: "Moroni", release_date: "Moroni", character: "Moroni"}];	
-	self.tableParams = new NgTableParams({}, { dataset: $scope.movies});*/
+	
 	$scope.routeImages = getRouteImages();
 	
 	// Event to searh Movies By Actor
@@ -14,7 +12,9 @@ actorApp.controller('searchCtrl', function($scope, $http,NgTableParams) {
 		$http.get(routeSearhMovies)
 				.then(function(response) {
 					$scope.movies = response.data.cast;	
-					$scope.tableParams = new NgTableParams({}, { dataset: $scope.movies});
-				});
+					$scope.tableParams = new NgTableParams(
+						{sorting: { release_date: 'asc'}},
+						{ dataset: $scope.movies});
+					});
 	}	
 });
