@@ -1,4 +1,4 @@
 /*
  * App Principal Angular JS
  */
-var actorApp = angular.module('actorApp', []);
+var actorApp = angular.module('actorApp', ["ngTable"]);

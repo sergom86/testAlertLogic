@@ -12,12 +12,13 @@
 	<script src="../purpose/functions.js"></script>
 	<script src="../purpose/functionsJquery.js"></script>
 	<script src="../app.js"></script>
-	<script src="../controllers/searchController.js"></script>
-	
+	<script src="../controllers/searchController.js"></script>	
+	<script src="https://rawgit.com/esvit/ng-table/master/dist/ng-table.min.js"></script>
 	
 	<!--  CSS -->
 	<link rel="stylesheet" href="../purpose/jquery/jquery-ui.min.css">
 	<link href="../purpose/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-table/0.8.3/ng-table.min.css">
 </head>
 
 <body ng-app="actorApp" ng-controller="searchCtrl">   
@@ -35,7 +36,7 @@
 	</div>
 		
 	</form>
-	<table class="table table-striped" ng-if="movies.length > 1">
+	<table class="table table-striped" ng-table="tableParams">
 		<thead>
 			<tr>
 				<th>Title</th>
@@ -45,7 +46,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="movie in movies | orderBy:'-release_date'" ng-if="movies.length > 1">
+			<tr ng-repeat="movie in $data | orderBy:'-release_date'" >
 				<th>{{movie.title}}</th>
 				<td>{{movie.release_date}}</td>
 				<td>{{movie.character}}</td>				
